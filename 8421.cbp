@@ -7,6 +7,11 @@ int main()
     int cifra, cod[4],i,copieCifra;
     cout<<"Introduceti cifra care doriti sa fie transformata in 8421: ";
     cin>>cifra;
+    if(cifra>9 || cifra <0)
+    {
+        cout<<"Cifra introdusa nu este valida";
+        return 0;
+    }
     copieCifra=cifra;
     for(i=3;i>=0;i--)
     {
