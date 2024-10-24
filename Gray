@@ -1,0 +1,28 @@
+'''
+Codificarea in Exces 3 , este asemanatoare cu cea in 8421,
+doar ca adunam cifrei noastre 3 si noul numar in transformam in 8421
+Ex: 5 in 8421=0101 , iar
+5 in exces 3 este (5+3) in 8421 , adica 8 in 8421=1000
+'''
+#Algoritmul este asemanator cu cel pentru 8421
+cifra=int(input("Introduceti cifra care doriti sa fie codificata in Exces 3: ")) #Citim cifra
+copie=cifra # Facem o copie cifrei initiale
+cod=[0,0,0,0] # Initializam vectorul cu 0 , care va stoca cei 4 biti si in final va reprezenta numarul nostru codificat
+cifra+=3 # Adunam cifrei noastre 3 , pentru a o putea transforma in 8421.
+if cifra>9 or cifra<0: #Verificam daca s-a introdus o cifra valida
+    print("Cifra introdusa nu este valida")
+    exit()
+'''
+Mai departe , impartim cifra succesiv la 2 si retinem resturile 
+de la ultimul la primul , de aceea am parcurs for-ul invers.
+'''
+for i in range(3,-1,-1):
+    cod[i]=cifra%2
+    cifra=cifra//2
+'''
+In final , in vectorul cod , vom avea reprezentarea in Exces 3 a cifrei noastre 
+si afisam fiecare cifra din vectorul.
+'''
+print("Codificare in Exces 3 a cifrei " + str(copie) + " este: " )
+for i in cod:
+    print(i)
